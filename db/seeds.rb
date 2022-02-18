@@ -5,6 +5,14 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-List.create(name: "Comedy")
-List.create(name: "Drama")
-List.create(name: "horror")
+require 'open-uri'
+i = 200
+300.times do
+  i += 1
+  puts "creating movie #{i}"
+  file = URI.open("http://tmdb.lewagon.com/movie/#{i}").read
+  parsed_file = JSON.parse(file)
+  if parsed_file.key?('success') == false
+    Movie.create(title: parsed_file["title"], overview: parsed_file["overview"], poster_url: "https://image.tmdb.org/t/p/w200#{parsed_file["poster_path"]}", rating: parsed_file["vote_average"].to_f)
+  end
+end
