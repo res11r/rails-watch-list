@@ -1,11 +1,16 @@
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://media.istockphoto.com/photos/empty-red-armchairs-of-a-theater-ready-for-a-show-picture-id1295114854?b=1&k=20&m=1295114854&s=170667a&w=0&h=W9ZbN674554Jsamxo5AfoO3DrSm_7qYS1EnANgusi9o=);">
+  <div class="container d-flex justify-content-center">
+    <h1 class="fs-1">Save any kind of movies</h1>
+  </div>
+</div>
 <div class="container">
   <div class="row">
     <div class="col-8">
       <h1>My lists</h1>
       <div class="d-flex flex-wrap justify-content-between">
       <% @lists.each do |list| %>
-      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://media.istockphoto.com/photos/empty-red-armchairs-of-a-theater-ready-for-a-show-picture-id1295114854?b=1&k=20&m=1295114854&s=170667a&w=0&h=W9ZbN674554Jsamxo5AfoO3DrSm_7qYS1EnANgusi9o=)">
-       <%= link_to list.name, list_path(list) %>
+      <div class="card-category p-4 m-4" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://media.istockphoto.com/photos/empty-red-armchairs-of-a-theater-ready-for-a-show-picture-id1295114854?b=1&k=20&m=1295114854&s=170667a&w=0&h=W9ZbN674554Jsamxo5AfoO3DrSm_7qYS1EnANgusi9o=)">
+       <%= link_to list.name, list_path(list), class:'text-decoration-none text-white' %>
       </div>
       <% end %>
       </div>

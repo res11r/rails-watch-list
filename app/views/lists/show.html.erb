@@ -4,9 +4,10 @@
   </div>
 </div>
 <div class="container">
-  <%= link_to 'add a movie', new_list_bookmark_path(@list), class: 'btn btn-success text-right' %>
+  <div class="d-flex justify-content-evenly">
+  <%= link_to 'add a movie', new_list_bookmark_path(@list), class: 'btn btn-success' %>
   <% @bookmarks.each do |bookmark| %>
-
+  </div>
   <div class="d-flex flex-wrap justify-content-evenly" >
     <div class="card" style="width: 25rem;">
       <%= image_tag('https://media.istockphoto.com/photos/empty-red-armchairs-of-a-theater-ready-for-a-show-picture-id1295114854?b=1&k=20&m=1295114854&s=170667a&w=0&h=W9ZbN674554Jsamxo5AfoO3DrSm_7qYS1EnANgusi9o=', class:"card-img-top", alt:"apartment") %>
