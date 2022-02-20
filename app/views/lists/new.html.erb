@@ -2,7 +2,7 @@
 <h1>Add a new movie list</h1>
 <%= simple_form_for (@list) do |f| %>
 <%= f.input :name %>
-<%= f.input :photo, as: :file %>
+<%= f.input :photo, :label => "background image (optional)", as: :file %>
 <%= f.submit %>
 <% end %>
 </div>
