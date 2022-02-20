@@ -11,3 +11,6 @@ import "bootstrap";
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+console.log("Hello from app/javascript/packs/application.js!");
+
+import "controllers"

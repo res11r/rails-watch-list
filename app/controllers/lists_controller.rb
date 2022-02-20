@@ -8,6 +8,8 @@ class ListsController < ApplicationController
     @bookmarks = @list.bookmarks
     @review = Review.new
     @review.list = @list
+    @bookmark = Bookmark.new
+    @bookmark.list = @list
   end
 
   def new

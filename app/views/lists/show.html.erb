@@ -4,11 +4,17 @@
   </div>
 </div>
 <div class="container">
+  <h2 class="text-center">Add movie to list</h2>
   <div class="row">
-    <div class="d-flex justify-content-evenly">
-    <p><i class="fa-solid fa-plus fs-4"></i><%= link_to 'New movie', new_list_bookmark_path(@list), class: 'text-decoration-none fs-4 ' %></p>
-
+    <div class="d-flex flex-wrap justify-content-evenly" >
+      <%= simple_form_for [@list, @bookmark], html: { class: "col-6"} do |f| %>
+        <%= f.input :comment %>
+        <%= f.association :movie, input_html: { data: { controller: 'select2' }} %>
+        <%= f.button :submit, 'Add movie', :class => 'btn btn-success' %>
+      <% end %>
     </div>
+  </div>
+  <div class="row">
     <div class="d-flex flex-wrap justify-content-evenly" >
         <% @bookmarks.each do |bookmark| %>
       <div class="card mt-4" style="width: 25rem;">
@@ -19,7 +25,7 @@
         </div>
         <div class="card-body">
           <p class="card-text fs-6"><i class="fa-solid fa-quote-left fs-3 mr-2"></i><%=  bookmark.comment %></p>
-          <%# <p class="card-text fs-6"><%=  link_to "Delete", bookmark_path(bookmark), method: :delete %>
+          <p class="card-text fs-6"> <%= link_to "Delete", bookmark_path(bookmark), method: :delete, data: { confirm: "Are you sure?" } %></p>
         </div>
       </div>
       <% end %>
@@ -40,7 +46,7 @@
       <%= simple_form_for [@list, @review] do |f| %>
       <%= f.input :content %>
       <%= f.input :rating %>
-      <%= f.button :submit, :class => 'btn btn-success' %>
+      <%= f.button :submit, 'Submit review', :class => 'btn btn-success' %>
       <% end %>
     </div>
     </div>
